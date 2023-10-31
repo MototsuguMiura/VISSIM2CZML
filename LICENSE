@@ -1,6 +1,13 @@
 MIT License
 
-Copyright (c) 2023 MototsuguMiura
+Copyright (c) 2023 CB (Chair of Geoinformatics, Technical University of Munich)
+
+This software includes modifications made by MototsuguMiura to the original 
+software licensed under the MIT License. Modified portions of this software are:
+- apply Vissim trajectory file format as fzp
+- add Viswalk pedestrian trajectory data as pp
+- change color and size based on actor's type
+- automatically read and convert all related files
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
