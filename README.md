@@ -1,0 +1,2 @@
+# VISSIM2CZML
+Vissim/Viswalkで計算した車両軌跡/歩行者軌跡をPLATEAU Viewで読込可能なCZML形式に変換するツールです
