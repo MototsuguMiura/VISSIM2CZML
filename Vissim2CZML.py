@@ -21,8 +21,8 @@ def convert_to_czml(input_file, output_file, start_date, sim_time=0):
         "name": "Vissim Trajectory",
         "clock": {
             "interval": f"{start_date.isoformat()}Z/{start_date.isoformat()}Z",
-            "currentTime": start_date.isoformat() + "Z", #アニメーション開始タイミング
-            "multiplier": 1,
+            "currentTime": start_date.isoformat() + "Z", #initial time of animation
+            "multiplier": 5, #animation speed
         }
     }]
 
@@ -105,7 +105,7 @@ def get_color_size(actor_type, vfile):
 if __name__ == '__main__':
     # Start time of the simulation
     start_date = datetime(2023, 11, 17, 12, 0, 0)
-    sim_time = 600 # 0: automatically set simulation duration by trajectory data
+    sim_time = 0 # 0: automatically set simulation duration by trajectory data
 
     # Read simulation date and time from att file (option)
     if 0: #1：use this functionality、0：do not use
@@ -120,4 +120,4 @@ if __name__ == '__main__':
     for file in read_files:
         base, ext = os.path.splitext(file)
         if ext == '.fzp' or ext == '.pp':
-            convert_to_czml(f'input/{file}',f'output/{file}.czml', start_date, sim_time)
+            convert_to_czml(f'input/{file}',f'output/{file}.czml', start_date - timedelta(hours=9), sim_time) #Tize zone is based on GMT
