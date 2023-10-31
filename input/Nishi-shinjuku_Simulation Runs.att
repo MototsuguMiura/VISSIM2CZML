@@ -1,0 +1,21 @@
+﻿$VISION
+* File:		C:\Users\mototsugu.miura\Desktop\Plateau\2023\CZML\VISSIM2CZML\inpx\Nishi-shinjuku.inpx
+* Comment:	
+* Date:		2023/10/31 16:57:31
+* Application:	PTV Vissim 2024.00-01 [267606]
+* 
+* Table: Simulation Runs
+* 
+* NO: No, Number (Unique number of the simulation run)
+* TIMESTAMP: Timestamp, Timestamp (Date and time the simulation starts)
+* RANDSEED: RandSeed, Random seed (Random seed specified in the simulation parameters)
+* STARTTM: StartTm, Start time (Start time specified in the simulation parameters)
+* SIMEND: SimEnd, Simulation end (Time in seconds after the start at which the simulation was ended) [s]
+* DYNASSIGNCONV: DynAssignConv, Dynamic Assignment has converged (True, if the last simulation run included a dynamic assignment which has met all active convergence criteria.)
+* 
+* No;Timestamp;RandSeed;StartTm;SimEnd;DynAssignConv
+* Number;Timestamp;Random seed;Start time;Simulation end;Dynamic Assignment has converged
+*
+$SIMULATIONRUN:NO;TIMESTAMP;RANDSEED;STARTTM;SIMEND;DYNASSIGNCONV
+1;2023-10-31 16:57:01;42;12:00:00;600.0;0
+
