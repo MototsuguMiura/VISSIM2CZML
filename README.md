@@ -1,7 +1,7 @@
 # VISSIM2CZML
 
-PTV Groupが開発・販売しているミクロ交通シミュレーター[PTV Vissim](https://www.ptvgroup.com/ja/products/ptv-vissim)が出力する車両軌跡（.fzp）及び歩行者軌跡（*.pp）データを国土交通省が主導するプロジェクト[PLATEAU](
-)で公開しているPLATEAU Viewにインポートしてアニメーションを可視化することができます。
+PTV Groupが開発・販売しているミクロ交通シミュレーター[PTV Vissim](https://www.ptvgroup.com/ja/products/ptv-vissim)が出力する車両軌跡（.fzp）及び歩行者軌跡（*.pp）データをCZML形式に変換します。
+国土交通省が主導するプロジェクト[PLATEAU](https://www.mlit.go.jp/plateau/)で公開しているPLATEAU Viewにインポートすることで、3D都市モデルや土砂災害、洪水・津波被害等とともにアニメーションを可視化することができます。
 
 ## ファイル構成
 ```txt
@@ -21,11 +21,11 @@ root
 ## 使い方
 
 #### ①VissimでBing Maps等の衛星写真に合わせてシミュレーションモデルを作成
-衛星写真と道路ネットワークの位置を一致させる
+衛星写真と道路ネットワークの位置を一致させる。
 ![image](https://github.com/MototsuguMiura/VISSIM2CZML/assets/85535019/828e2c88-94db-4ca2-8032-c9371d403a2d)
 
 #### ②緯度・経度のユーザー定義属性（UDA)が設定されたファイルを追加読込
-デフォルトの設定では、下記フォルダにファイルが存在する<br />
+デフォルトの設定では、下記フォルダにファイルが存在する。<br />
 C:\Users\Public\Documents\PTV Vision\PTV Vissim 2023\Examples Training\Evaluation\WGS Coordinates.UDA
 ![image](https://github.com/MototsuguMiura/VISSIM2CZML/assets/85535019/9286bf0e-d5aa-4247-9f98-179d0236e80f)
 
