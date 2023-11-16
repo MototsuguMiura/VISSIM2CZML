@@ -72,6 +72,8 @@ def convert_to_czml(input_file, output_file, start_date, sim_time=0):
     with open(output_file, 'w') as output_czml:
         json.dump(czml, output_czml, indent=1)
 
+    print(output_file)
+
 
 def get_color_size(actor_type, vfile):
     # for vehicle type
