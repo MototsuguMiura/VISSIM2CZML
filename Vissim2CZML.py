@@ -3,6 +3,20 @@ import pandas as pd
 import json
 from datetime import datetime, timedelta
 
+def find_header(input_file, vfile):
+    skip_rows = 0
+    with open(input_file, 'r') as file:
+        for line in file:
+            if vfile:
+                if '$VEHICLE:SIMSEC' in line:
+                    assert all ((s in line) for s in ['NO', 'VEHTYPE', 'LONGITUDEFRONT', 'LATITUDEFRONT']), 'FZPファイルの属性名が一致しません'
+                    break
+            else:
+                if '$PEDESTRIAN:SIMSEC' in line:
+                    assert all ((s in line) for s in ['NO', 'PEDTYPE', 'LONGITUDE', 'LATITUDE']), 'PPファイルの属性名が一致しません'
+                    break
+            skip_rows += 1
+    return skip_rows
 
 def convert_to_czml(input_file, output_file, start_date, sim_time=0):
     # Check if vehicle or pedestrian trajectory, then read
@@ -12,7 +26,10 @@ def convert_to_czml(input_file, output_file, start_date, sim_time=0):
         vfile = False
     else:
         raise AssertionError('有効なファイル形式ではありません')
-    df = pd.read_csv(input_file, header=18, delimiter = ';') # this number depends on the file
+
+    # find header line and check the header
+    skip_rows = find_header(input_file, vfile)
+    df = pd.read_csv(input_file, header=skip_rows, delimiter = ';') # this number depends on the file
 
     # Create Header information
     czml = [{
@@ -54,14 +71,14 @@ def convert_to_czml(input_file, output_file, start_date, sim_time=0):
             }
 
         # Set the z value based on the presence of the 'z' column in the CSV
-        if 'COORDFRONTZ' in df.columns:
+        if ('COORDFRONTZ' in df.columns) or ('COORDCENTERZ' in df.columns):
             actor_positions[actor_id]['position']['cartographicDegrees'].extend(
                 [float(df.iloc[i]['$VEHICLE:SIMSEC']), float(df.iloc[i]['LONGITUDEFRONT']), float(df.iloc[i]['LATITUDEFRONT']), float(df.iloc[i]['COORDFRONTZ'])]
                 if vfile else [float(df.iloc[i]['$PEDESTRIAN:SIMSEC']), float(df.iloc[i]['LONGITUDE']), float(df.iloc[i]['LATITUDE']), float(df.iloc[i]['COORDCENTERZ'])])
         else:
             actor_positions[actor_id]['position']['cartographicDegrees'].extend(
-                [float(df.iloc[i]['$VEHICLE:SIMSEC']), float(df.iloc[i]['LONGITUDEFRONT']), float(df.iloc[i]['LATITUDEFRONT']), 0]
-                if vfile else [float(df.iloc[i]['$PEDESTRIAN:SIMSEC']), float(df.iloc[i]['LONGITUDE']), float(df.iloc[i]['LATITUDE']), 100])
+                [float(df.iloc[i]['$VEHICLE:SIMSEC']), float(df.iloc[i]['LONGITUDEFRONT']), float(df.iloc[i]['LATITUDEFRONT']), 0.0]
+                if vfile else [float(df.iloc[i]['$PEDESTRIAN:SIMSEC']), float(df.iloc[i]['LONGITUDE']), float(df.iloc[i]['LATITUDE']), 0.0])
 
     # Update the end time of the interval to the maximum timestep value
     end_date = start_date + timedelta(seconds=sim_time if sim_time != 0 else max_timestep)
