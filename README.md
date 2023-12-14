@@ -66,7 +66,7 @@ Pythonスクリプトをエディターで開き、日付の設定やPLATEAU Vie
 <br />
 
 ### PLATEAU Viewにインポートされた車両・歩行者アニメーション（例：西新宿）
-![image](https://github.com/MototsuguMiura/VISSIM2CZML/assets/85535019/5b39716d-4d9d-45d4-9192-17eddde662de)
+![Plateau View](https://github.com/MototsuguMiura/VISSIM2CZML/assets/85535019/e6f559c1-64ef-47cd-89d1-5a1362fd3ad4)
 
 ## 動作環境  
 - PTV Vissim 2024  
