@@ -65,21 +65,22 @@ Pythonスクリプトをエディターで開き、日付の設定やPLATEAU Vie
 
 <br />
 
-### PLATEAU Viewにインポートされた車両・歩行者アニメーション（例：西新宿）
+#### PLATEAU View 2.0にインポートされた車両・歩行者アニメーション（例：西新宿）
 ![Plateau View](https://github.com/MototsuguMiura/VISSIM2CZML/assets/85535019/e6f559c1-64ef-47cd-89d1-5a1362fd3ad4)
 
 <br />
 
-### PLATEAU View 3.0への対応
-Plateau View 3.0から、Myデータとして登録したCZMLファイルはタイムスライダの機能が利用できなくなりました。
+## PLATEAU View 3.0への対応
+Plateau View 3.0から、Myデータとして登録したCZMLファイルはタイムスライダの機能が利用できなくなりました。<br />
 画面左上のアイコンから太陽光シミュレーションの画面を開いて、手動でスライダを動かすと時系列データの表示ができます。
 ![image](https://github.com/MototsuguMiura/VISSIM2CZML/assets/85535019/e97371c1-a151-4026-855c-ef72430e7e33)
 
-<br />
-あるいは新宿モザイク通りのユースケースが2020年12月17日0時の日付で登録されているので、その日付に合わせて 
-Pythonの107行目を start_date = datetime(2020, 12, 17, 0, 0, 0)に変更します。
-![Plateau View v3](https://github.com/MototsuguMiura/VISSIM2CZML/assets/85535019/728cbef3-eec1-4600-953f-6907315e5482)
+あるいは新宿モザイク通りのユースケースが2020年12月17日0時の日付で登録されているので、<br />
+その日付に合わせてPythonの107行目を start_date = datetime(2020, 12, 17, 0, 0, 0)に変更します。
+#### PLATEAU View 3.0にインポートされた車両・歩行者アニメーション（例：西新宿）
+![Plateau View](https://github.com/MototsuguMiura/VISSIM2CZML/assets/85535019/728cbef3-eec1-4600-953f-6907315e5482)
 
+<br />
 
 ## 動作環境  
 - PTV Vissim 2024  
